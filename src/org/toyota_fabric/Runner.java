@@ -36,7 +36,7 @@ public class Runner {
         Headlights hianceHeadlights = new Headlights(true);
 
         Camry camry = new Camry("Черный", 200, false, 50, camryElectrics, camryEngine,
-               camryHeadlights , GearBoxType.AUTOMATIC,
+               camryHeadlights, GearBoxType.AUTOMATIC,
                 new Wheels(false, WheelsDiameter.CAMRY),
                 new Wheels(false, WheelsDiameter.CAMRY),
                 new Wheels(false, WheelsDiameter.CAMRY),
