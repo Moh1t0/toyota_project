@@ -1,18 +1,12 @@
 package org.toyota_fabric.enums;
 
 public enum WheelsDiameter {
-    CAMRY(17),
-    SOLARA(16),
-    HIANCE(20),
-    DYNA(20);
+    DIAMETER_17,
+    DIAMETER_16,
+    DIAMETER_20;
 
-    private final int diameter;
-
-    WheelsDiameter(int diameter) {
-        this.diameter = diameter;
+    WheelsDiameter() {
     }
 
-    public int getDiameter() {
-        return diameter;
-    }
+
 }

@@ -2,17 +2,17 @@ package org.toyota_fabric.car_components;
 
 import org.toyota_fabric.enums.WheelsDiameter;
 
-public class Wheels {
+public class Wheel {
     private boolean isPierced;
     private WheelsDiameter wheelsDiameter;
 
-    public Wheels(boolean isPierced, WheelsDiameter wheelsDiameter) {
+    public Wheel(boolean isPierced, WheelsDiameter wheelsDiameter) {
         this.isPierced = isPierced;
         this.wheelsDiameter = wheelsDiameter;
     }
 
-    public boolean replaceWheels(Wheels oldWheels, Wheels newWheels) {
-        if (oldWheels.wheelsDiameter.getDiameter() == newWheels.wheelsDiameter.getDiameter()) {
+    public boolean replaceWheels(Wheel oldWheel, Wheel newWheel) {
+        if (oldWheel.wheelsDiameter == newWheel.wheelsDiameter) {
             System.out.println("Колеса заменены");
             return true;
         }

@@ -1,27 +1,24 @@
 package org.toyota_fabric.cars.trucks;
 
-import org.toyota_fabric.car_components.Electrics;
-import org.toyota_fabric.car_components.Engine;
-import org.toyota_fabric.car_components.Headlights;
-import org.toyota_fabric.car_components.Wheels;
+import org.toyota_fabric.car_components.*;
+import org.toyota_fabric.enums.Country;
 import org.toyota_fabric.enums.GearBoxType;
 
+import java.math.BigDecimal;
+
 public class Hiance extends Truck {
-    private boolean hasSpareWheel;
+    private SpareWheel spareWheel;
 
-    public Hiance(String color, int maxSpeed, boolean isMoving, int gasTank, Electrics electrics, Engine engine,
-                  Headlights headlights, GearBoxType gearBoxType, Wheels rightFront, Wheels leftFront, Wheels rightBack,
-                  Wheels leftBack, double price, double liftingPower, boolean hasSpareWheel) {
-        super(color, maxSpeed, isMoving, gasTank, electrics, engine, headlights, gearBoxType, rightFront, leftFront,
-                rightBack, leftBack, price, liftingPower);
-        this.hasSpareWheel = hasSpareWheel;
+    public Hiance(String color, int maxSpeed, boolean isMoving, Electrics electrics,
+                  Engine engine, Headlights headlights, GearBoxType gearBoxType, Wheel rightFront,
+                  Wheel leftFront, Wheel rightBack, Wheel leftBack, BigDecimal price, GasTank gasTank,
+                  Country country, LiftingPower liftingPower, SpareWheel spareWheel) {
+        super(color, maxSpeed, isMoving, electrics, engine, headlights, gearBoxType, rightFront,
+                leftFront, rightBack, leftBack, price, gasTank, country, liftingPower);
+        this.spareWheel = spareWheel;
     }
 
-    public boolean isHasSpareWheel() {
-        return hasSpareWheel;
-    }
-
-    public void setHasSpareWheel(boolean hasSpareWheel) {
-        this.hasSpareWheel = hasSpareWheel;
+    public SpareWheel getSpareWheel() {
+        return spareWheel;
     }
 }

@@ -1,30 +1,27 @@
 package org.toyota_fabric.cars.сabriolet;
 
-import org.toyota_fabric.car_components.Electrics;
-import org.toyota_fabric.car_components.Engine;
-import org.toyota_fabric.car_components.Headlights;
-import org.toyota_fabric.car_components.Wheels;
-import org.toyota_fabric.cars.light_cars.Car;
+import org.toyota_fabric.car_components.*;
 import org.toyota_fabric.cars.light_cars.LightCar;
+import org.toyota_fabric.enums.Country;
 import org.toyota_fabric.enums.GearBoxType;
 
+import java.math.BigDecimal;
+
 public abstract class Cabriolet extends LightCar {
-    private boolean isRoofDown;
+    private Roof roof;
 
-    public Cabriolet(String color, int maxSpeed, boolean isMoving, int gasTank, Electrics electrics,
-                     Engine engine, Headlights headlights, GearBoxType gearBoxType, Wheels rightFront,
-                     Wheels leftFront, Wheels rightBack, Wheels leftBack, double price, boolean
-                             cruiseControl, boolean isRoofDown) {
-        super(color, maxSpeed, isMoving, gasTank, electrics, engine, headlights, gearBoxType, rightFront,
-                leftFront, rightBack, leftBack, price, cruiseControl);
-        this.isRoofDown = isRoofDown;
+    public Cabriolet(String color, int maxSpeed, boolean isMoving, Electrics electrics, Engine engine,
+                     Headlights headlights, GearBoxType gearBoxType, Wheel rightFront, Wheel leftFront,
+                     Wheel rightBack, Wheel leftBack, BigDecimal price, GasTank gasTank, Country country,
+                     CruiseControl cruiseControl, Roof roof) {
+        super(color, maxSpeed, isMoving, electrics, engine, headlights, gearBoxType, rightFront, leftFront,
+                rightBack, leftBack, price, gasTank, country, cruiseControl);
+        this.roof = roof;
     }
 
-    public boolean isRoofDown() {
-        return isRoofDown;
-    }
-
-    public void setRoofDown(boolean roofDown) {
-        isRoofDown = roofDown;
+    public Roof getRoof() {
+        return roof;
     }
 }
+
+

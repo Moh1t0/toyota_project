@@ -1,9 +1,9 @@
 package org.toyota_fabric.car_components;
 
-public class Details {
-    private boolean isWork;
+public abstract class Detail {
+    protected boolean isWork;
 
-    public Details(boolean isWork) {
+    public Detail(boolean isWork) {
         this.isWork = isWork;
     }
 

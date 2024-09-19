@@ -1,36 +1,35 @@
-package org.toyota_fabric.cars.light_cars;
+package org.toyota_fabric.cars;
 
-import org.toyota_fabric.car_components.Electrics;
-import org.toyota_fabric.car_components.Engine;
-import org.toyota_fabric.car_components.Headlights;
-import org.toyota_fabric.car_components.Wheels;
+import org.toyota_fabric.car_components.*;
+import org.toyota_fabric.enums.Country;
 import org.toyota_fabric.enums.GearBoxType;
 import org.toyota_fabric.exeptions.StartCarException;
 
-import java.util.Arrays;
+import java.math.BigDecimal;
 
 public abstract class Car {
     protected String color;
     protected int maxSpeed;
     protected boolean isMoving;
-    protected int gasTank;
     protected Electrics electrics;
     protected Engine engine;
     protected Headlights headlights;
     protected GearBoxType gearBoxType;
-    protected Wheels rightFront;
-    protected Wheels leftFront;
-    protected Wheels rightBack;
-    protected Wheels leftBack;
-    protected double price;
+    protected Wheel rightFront;
+    protected Wheel leftFront;
+    protected Wheel rightBack;
+    protected Wheel leftBack;
+    protected BigDecimal price;
+    protected GasTank gasTank;
+    protected Country country;
+    protected Wheel wheel;
 
-    public Car(String color, int maxSpeed, boolean isMoving, int gasTank, Electrics electrics,
-               Engine engine, Headlights headlights, GearBoxType gearBoxType, Wheels rightFront, Wheels leftFront,
-               Wheels rightBack, Wheels leftBack, double price) {
+    public Car(String color, int maxSpeed, boolean isMoving, Electrics electrics, Engine engine, Headlights headlights,
+               GearBoxType gearBoxType, Wheel rightFront, Wheel leftFront, Wheel rightBack, Wheel leftBack,
+               BigDecimal price, GasTank gasTank, Country country) {
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.isMoving = isMoving;
-        this.gasTank = gasTank;
         this.electrics = electrics;
         this.engine = engine;
         this.headlights = headlights;
@@ -40,11 +39,18 @@ public abstract class Car {
         this.rightBack = rightBack;
         this.leftBack = leftBack;
         this.price = price;
+        this.gasTank = gasTank;
+        this.country = country;
     }
 
     public void startMove() throws StartCarException {
-        if ((!rightBack.isPierced() && !rightFront.isPierced() && !leftBack.isPierced() && !leftFront.isPierced())
-                && gasTank > 0 && (electrics.isWork() && engine.isWork())) {
+        if ((rightBack != null && !rightBack.isPierced()) &&
+                (rightFront != null && !rightFront.isPierced()) &&
+                (leftBack != null && !leftBack.isPierced()) &&
+                (leftFront != null && !leftFront.isPierced()) &&
+                gasTank.getFuel() > 0 &&
+                (electrics.isWork() && engine.isWork())) {
+
             this.isMoving = true;
             System.out.println("Машина едет");
         } else {
@@ -56,7 +62,6 @@ public abstract class Car {
         this.isMoving = false;
         System.out.println("Машина остановлена");
     }
-
 
     public void turningOnHeadlights() {
         this.headlights.setWork(true);
@@ -75,7 +80,11 @@ public abstract class Car {
         isMoving = moving;
     }
 
-    public void setGasTank(int gasTank) {
+    public GasTank getGasTank() {
+        return gasTank;
+    }
+
+    public void setGasTank(GasTank gasTank) {
         this.gasTank = gasTank;
     }
 
@@ -95,25 +104,27 @@ public abstract class Car {
         this.gearBoxType = gearBoxType;
     }
 
-    public void setRightFront(Wheels rightFront) {
+    public void setRightFront(Wheel rightFront) {
         this.rightFront = rightFront;
     }
 
-    public void setLeftFront(Wheels leftFront) {
+    public void setLeftFront(Wheel leftFront) {
         this.leftFront = leftFront;
     }
 
-    public void setRightBack(Wheels rightBack) {
+    public void setRightBack(Wheel rightBack) {
         this.rightBack = rightBack;
     }
 
-    public void setLeftBack(Wheels leftBack) {
+    public void setLeftBack(Wheel leftBack) {
         this.leftBack = leftBack;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
+
 
     @Override
     public String toString() {
@@ -133,4 +144,6 @@ public abstract class Car {
                 ", price=" + price +
                 '}';
     }
+
+
 }

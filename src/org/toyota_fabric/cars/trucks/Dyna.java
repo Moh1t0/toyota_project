@@ -1,20 +1,25 @@
 package org.toyota_fabric.cars.trucks;
 
-import org.toyota_fabric.car_components.Electrics;
-import org.toyota_fabric.car_components.Engine;
-import org.toyota_fabric.car_components.Headlights;
-import org.toyota_fabric.car_components.Wheels;
+import org.toyota_fabric.car_components.*;
+import org.toyota_fabric.enums.Country;
 import org.toyota_fabric.enums.GearBoxType;
 
+import java.math.BigDecimal;
+
 public class Dyna extends Truck {
-    public Dyna(String color, int maxSpeed, boolean isMoving, int gasTank, Electrics electrics, Engine engine,
-                Headlights headlights, GearBoxType gearBoxType, Wheels rightFront, Wheels leftFront, Wheels rightBack,
-                Wheels leftBack, double price, double liftingPower) {
-        super(color, maxSpeed, isMoving, gasTank, electrics, engine, headlights, gearBoxType, rightFront, leftFront,
-                rightBack, leftBack, price, liftingPower);
+    private Socket socket;
+
+    public Dyna(String color, int maxSpeed, boolean isMoving, Electrics electrics, Engine engine,
+                Headlights headlights, GearBoxType gearBoxType, Wheel rightFront, Wheel leftFront,
+                Wheel rightBack, Wheel leftBack, BigDecimal price, GasTank gasTank, Country country,
+                LiftingPower liftingPower, Socket socket) {
+        super(color, maxSpeed, isMoving, electrics, engine, headlights, gearBoxType, rightFront,
+                leftFront, rightBack, leftBack, price, gasTank, country, liftingPower);
+        this.socket = socket;
     }
 
-    public void charge() {
-        System.out.println("Телефон заряжается");
+    public Socket getSocket() {
+        return socket;
     }
 }
+
