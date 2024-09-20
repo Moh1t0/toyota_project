@@ -124,7 +124,9 @@ public abstract class Car {
         this.price = price;
     }
 
-
+    public Country getCountry() {
+        return country;
+    }
 
     @Override
     public String toString() {

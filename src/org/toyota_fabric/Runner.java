@@ -12,10 +12,11 @@ import org.toyota_fabric.exeptions.CountyFactoryNotEqualException;
 import org.toyota_fabric.exeptions.StartCarException;
 import org.toyota_fabric.factory.Conveyor;
 import org.toyota_fabric.factory.Factory;
+import org.toyota_fabric.warehouse.Warehouse;
 
 import java.math.BigDecimal;
 
-public class RunnerEx1 {
+public class Runner {
     public static void main(String[] args) throws StartCarException, CountyFactoryNotEqualException {
 
         //Компоненты для Camry
@@ -114,9 +115,12 @@ public class RunnerEx1 {
 
         System.out.println("____________________________________");
 
+        /**
+         * 2 этап:
+         */
 
-        Factory usaFactory = new Factory(Country.KAZAKHSTAN);
-        Conveyor usaConveyor = new Conveyor(Country.KAZAKHSTAN, usaFactory);
+        Factory usaFactory = new Factory(Country.USA);
+        Conveyor usaConveyor = new Conveyor(Country.USA, usaFactory);
         Camry usaCamry = usaConveyor.createCamry("Белая", new BigDecimal("200.000"));
         usaCamry.setGasTank(new GasTank(200));
         usaCamry.startMove();
@@ -144,5 +148,22 @@ public class RunnerEx1 {
         Conveyor russiaConveyor = new Conveyor(Country.RUSSIA, russiaFactory);
         Solara russiaSolara = russiaConveyor.createSolara(new BigDecimal("500.000"), "Зеленая");
         russiaSolara.getRoof().raised();
+        System.out.println(russiaSolara.getCountry());
+
+        System.out.println("_______________________________________");
+
+        /**
+         *  3 этап:
+         */
+
+        Warehouse warehouse = new Warehouse();
+        warehouse.addCamry(usaCamry);
+        warehouse.addDyna(japanDyna);
+        warehouse.addCamry(camry);
+        camry.getCruiseControl().on();
+        System.out.println(warehouse.getCountCar());
+        System.out.println(warehouse.getCountCar());
+        warehouse.camryCountCar();
+
     }
 }
