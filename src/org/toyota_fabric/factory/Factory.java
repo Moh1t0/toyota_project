@@ -2,6 +2,7 @@ package org.toyota_fabric.factory;
 
 import org.toyota_fabric.car_components.*;
 import org.toyota_fabric.cars.light_cars.Camry;
+import org.toyota_fabric.enums.CarType;
 import org.toyota_fabric.enums.Country;
 import org.toyota_fabric.enums.WheelsDiameter;
 import org.toyota_fabric.exeptions.CountyFactoryNotEqualException;

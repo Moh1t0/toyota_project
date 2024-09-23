@@ -4,6 +4,7 @@ import org.toyota_fabric.cars.light_cars.Camry;
 import org.toyota_fabric.cars.trucks.Dyna;
 import org.toyota_fabric.cars.trucks.Hiance;
 import org.toyota_fabric.cars.сabriolet.Solara;
+import org.toyota_fabric.enums.CarType;
 import org.toyota_fabric.enums.Country;
 import org.toyota_fabric.enums.GearBoxType;
 import org.toyota_fabric.enums.WheelsDiameter;
@@ -19,7 +20,7 @@ public class Conveyor {
 
     public Conveyor(Country country, Factory factory) throws  CountyFactoryNotEqualException {
         this.country = country;
-        if (!factory.getCountry().equals(country) ) {
+        if (!factory.getCountry().equals(country)) {
             throw new CountyFactoryNotEqualException("Страны не совпадают" + factory.getCountry() + " != " + country);
         }
         this.factory = factory;
@@ -30,7 +31,7 @@ public class Conveyor {
                 factory.createHeadLights(), GearBoxType.AUTOMATIC, factory.createWheel(WheelsDiameter.DIAMETER_17),
                 factory.createWheel(WheelsDiameter.DIAMETER_17),
                 factory.createWheel(WheelsDiameter.DIAMETER_17), factory.createWheel(WheelsDiameter.DIAMETER_17), price,
-                factory.createGasTank(), country, factory.createCruiseControl(), factory.createUsb());
+                factory.createGasTank(), country, CarType.CAMRY, factory.createCruiseControl(), factory.createUsb());
     }
 
     public Solara createSolara(BigDecimal price, String color) {
@@ -38,7 +39,7 @@ public class Conveyor {
                 factory.createHeadLights(), GearBoxType.AUTOMATIC, factory.createWheel(WheelsDiameter.DIAMETER_17),
                 factory.createWheel(WheelsDiameter.DIAMETER_17),
                 factory.createWheel(WheelsDiameter.DIAMETER_17), factory.createWheel(WheelsDiameter.DIAMETER_17), price,
-                factory.createGasTank(), country, factory.createCruiseControl(),
+                factory.createGasTank(), country, CarType.SOLARA, factory.createCruiseControl(),
                 factory.createRoof(), factory.createRefrigerator());
     }
 
@@ -47,7 +48,7 @@ public class Conveyor {
                 factory.createHeadLights(), GearBoxType.MECHANICS, factory.createWheel(WheelsDiameter.DIAMETER_20),
                 factory.createWheel(WheelsDiameter.DIAMETER_20),
                 factory.createWheel(WheelsDiameter.DIAMETER_20), factory.createWheel(WheelsDiameter.DIAMETER_20), price,
-                factory.createGasTank(), country, factory.createLiftingPower(), factory.createSocket());
+                factory.createGasTank(), country, CarType.DYNA ,factory.createLiftingPower(), factory.createSocket());
     }
 
     public Hiance createHiance(String color, BigDecimal price) {
@@ -55,7 +56,7 @@ public class Conveyor {
                 factory.createHeadLights(), GearBoxType.MECHANICS, factory.createWheel(WheelsDiameter.DIAMETER_20),
                 factory.createWheel(WheelsDiameter.DIAMETER_16),
                 factory.createWheel(WheelsDiameter.DIAMETER_20), factory.createWheel(WheelsDiameter.DIAMETER_20), price,
-                factory.createGasTank(), country, factory.createLiftingPower(), factory.createSpareWheel());
+                factory.createGasTank(), country, CarType.HIANCE, factory.createLiftingPower(), factory.createSpareWheel());
     }
 
     @Override

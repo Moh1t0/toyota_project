@@ -1,6 +1,7 @@
 package org.toyota_fabric.cars;
 
 import org.toyota_fabric.car_components.*;
+import org.toyota_fabric.enums.CarType;
 import org.toyota_fabric.enums.Country;
 import org.toyota_fabric.enums.GearBoxType;
 import org.toyota_fabric.exeptions.StartCarException;
@@ -23,10 +24,11 @@ public abstract class Car {
     protected GasTank gasTank;
     protected Country country;
     protected Wheel wheel;
+    protected CarType carType;
 
     public Car(String color, int maxSpeed, boolean isMoving, Electrics electrics, Engine engine, Headlights headlights,
                GearBoxType gearBoxType, Wheel rightFront, Wheel leftFront, Wheel rightBack, Wheel leftBack,
-               BigDecimal price, GasTank gasTank, Country country) {
+               BigDecimal price, GasTank gasTank, Country country, CarType carType) {
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.isMoving = isMoving;
@@ -41,6 +43,7 @@ public abstract class Car {
         this.price = price;
         this.gasTank = gasTank;
         this.country = country;
+        this.carType = carType;
     }
 
     public void startMove() throws StartCarException {
@@ -126,6 +129,10 @@ public abstract class Car {
 
     public Country getCountry() {
         return country;
+    }
+
+    public CarType getCarType() {
+        return carType;
     }
 
     @Override

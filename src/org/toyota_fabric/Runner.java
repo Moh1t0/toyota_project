@@ -48,72 +48,72 @@ public class Runner {
         LiftingPower hianceLiftingPower = new LiftingPower(1000);
         SpareWheel hianceSpareWheel = new SpareWheel(true);
 
-        Camry camry = new Camry("Черный", 200, false, camryElectrics, camryEngine,
-                camryHeadlights, GearBoxType.AUTOMATIC,
-                new Wheel(false, WheelsDiameter.DIAMETER_16),
-                new Wheel(false, WheelsDiameter.DIAMETER_16),
-                new Wheel(false, WheelsDiameter.DIAMETER_16),
-                new Wheel(false, WheelsDiameter.DIAMETER_16),
-                new BigDecimal(200.000), new GasTank(200), Country.KAZAKHSTAN,
-                camryCruiseControl,
-                camryUsb);
-
-        Solara solara = new Solara("Белый", 170, false,
-                solaraElectrics, solaraEngine, solaraHeadlights, GearBoxType.ROBOT,
-                new Wheel(false, WheelsDiameter.DIAMETER_16),
-                new Wheel(false, WheelsDiameter.DIAMETER_16),
-                new Wheel(false, WheelsDiameter.DIAMETER_16),
-                new Wheel(false, WheelsDiameter.DIAMETER_16),
-                new BigDecimal(150.000), new GasTank(150), Country.CHINA, solaraCruiseControl, soloraRoof,
-                solaraRefrigerator);
-
-        Dyna dyna = new Dyna("Серый", 120, false, dynaElectrics,
-                dynaEngine, dynaHeadlights, GearBoxType.MECHANICS,
-                new Wheel(false, WheelsDiameter.DIAMETER_20),
-                new Wheel(false, WheelsDiameter.DIAMETER_20),
-                new Wheel(false, WheelsDiameter.DIAMETER_20),
-                new Wheel(false, WheelsDiameter.DIAMETER_20), new BigDecimal(400.000),
-                new GasTank(300), Country.JAPAN, dynaLiftingPower,
-                dynaSocket);
-
-        Hiance hiance = new Hiance("Серый", 100, false, hianceElectrics,
-                hianceEngine, hianceHeadlights, GearBoxType.MECHANICS,
-                new Wheel(false, WheelsDiameter.DIAMETER_17),
-                new Wheel(false, WheelsDiameter.DIAMETER_17),
-                new Wheel(false, WheelsDiameter.DIAMETER_17),
-                new Wheel(false, WheelsDiameter.DIAMETER_17),
-                new BigDecimal(350.000), new GasTank(200), Country.RUSSIA, hianceLiftingPower, hianceSpareWheel);
-
-
-        camry.startMove();
-        camry.turningOnHeadlights();
-        camryCruiseControl.on();
-        camryCruiseControl.off();
-        camryUsb.musicOn();
-        camryUsb.musicOff();
-
-        System.out.println("____________________________________");
-
-        solara.startMove();
-        solaraCruiseControl.on();
-        solaraRefrigerator.coolDrink();
-        soloraRoof.lower();
-
-        System.out.println("____________________________________");
-
-        dyna.startMove();
-        dynaSocket.charge();
-        dynaSocket.disable();
-        System.out.println(dynaLiftingPower);
-
-        System.out.println("____________________________________");
-
-        hiance.startMove();
-        hiance.finishMove();
-        System.out.println(hianceSpareWheel);
-        System.out.println(hianceLiftingPower);
-
-        System.out.println("____________________________________");
+//        Camry camry = new Camry("Черный", 200, false, camryElectrics, camryEngine,
+//                camryHeadlights, GearBoxType.AUTOMATIC,
+//                new Wheel(false, WheelsDiameter.DIAMETER_16),
+//                new Wheel(false, WheelsDiameter.DIAMETER_16),
+//                new Wheel(false, WheelsDiameter.DIAMETER_16),
+//                new Wheel(false, WheelsDiameter.DIAMETER_16),
+//                new BigDecimal(200.000), new GasTank(200), Country.KAZAKHSTAN,
+//                camryCruiseControl,
+//                camryUsb);
+//
+//        Solara solara = new Solara("Белый", 170, false,
+//                solaraElectrics, solaraEngine, solaraHeadlights, GearBoxType.ROBOT,
+//                new Wheel(false, WheelsDiameter.DIAMETER_16),
+//                new Wheel(false, WheelsDiameter.DIAMETER_16),
+//                new Wheel(false, WheelsDiameter.DIAMETER_16),
+//                new Wheel(false, WheelsDiameter.DIAMETER_16),
+//                new BigDecimal(150.000), new GasTank(150), Country.CHINA, solaraCruiseControl, soloraRoof,
+//                solaraRefrigerator);
+//
+//        Dyna dyna = new Dyna("Серый", 120, false, dynaElectrics,
+//                dynaEngine, dynaHeadlights, GearBoxType.MECHANICS,
+//                new Wheel(false, WheelsDiameter.DIAMETER_20),
+//                new Wheel(false, WheelsDiameter.DIAMETER_20),
+//                new Wheel(false, WheelsDiameter.DIAMETER_20),
+//                new Wheel(false, WheelsDiameter.DIAMETER_20), new BigDecimal(400.000),
+//                new GasTank(300), Country.JAPAN, dynaLiftingPower,
+//                dynaSocket);
+//
+//        Hiance hiance = new Hiance("Серый", 100, false, hianceElectrics,
+//                hianceEngine, hianceHeadlights, GearBoxType.MECHANICS,
+//                new Wheel(false, WheelsDiameter.DIAMETER_17),
+//                new Wheel(false, WheelsDiameter.DIAMETER_17),
+//                new Wheel(false, WheelsDiameter.DIAMETER_17),
+//                new Wheel(false, WheelsDiameter.DIAMETER_17),
+//                new BigDecimal(350.000), new GasTank(200), Country.RUSSIA, hianceLiftingPower, hianceSpareWheel);
+//
+//
+//        camry.startMove();
+//        camry.turningOnHeadlights();
+//        camryCruiseControl.on();
+//        camryCruiseControl.off();
+//        camryUsb.musicOn();
+//        camryUsb.musicOff();
+//
+//        System.out.println("____________________________________");
+//
+//        solara.startMove();
+//        solaraCruiseControl.on();
+//        solaraRefrigerator.coolDrink();
+//        soloraRoof.lower();
+//
+//        System.out.println("____________________________________");
+//
+//        dyna.startMove();
+//        dynaSocket.charge();
+//        dynaSocket.disable();
+//        System.out.println(dynaLiftingPower);
+//
+//        System.out.println("____________________________________");
+//
+//        hiance.startMove();
+//        hiance.finishMove();
+//        System.out.println(hianceSpareWheel);
+//        System.out.println(hianceLiftingPower);
+//
+//        System.out.println("____________________________________");
 
         /**
          * 2 этап:
@@ -157,13 +157,9 @@ public class Runner {
          */
 
         Warehouse warehouse = new Warehouse();
-        warehouse.addCamry(usaCamry);
-        warehouse.addDyna(japanDyna);
-        warehouse.addCamry(camry);
-        camry.getCruiseControl().on();
-        System.out.println(warehouse.getCountCar());
-        System.out.println(warehouse.getCountCar());
-        warehouse.camryCountCar();
+        warehouse.addToMap(usaCamry);
+        warehouse.addToMap(japanDyna);
+
 
     }
 }

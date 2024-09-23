@@ -2,6 +2,7 @@ package org.toyota_fabric.cars.light_cars;
 
 import org.toyota_fabric.car_components.*;
 import org.toyota_fabric.cars.Car;
+import org.toyota_fabric.enums.CarType;
 import org.toyota_fabric.enums.Country;
 import org.toyota_fabric.enums.GearBoxType;
 
@@ -14,9 +15,9 @@ public abstract class LightCar extends Car {
     public LightCar(String color, int maxSpeed, boolean isMoving, Electrics electrics, Engine engine,
                     Headlights headlights, GearBoxType gearBoxType, Wheel rightFront, Wheel leftFront,
                     Wheel rightBack, Wheel leftBack, BigDecimal price, GasTank gasTank, Country country,
-                    CruiseControl cruiseControl) {
+                    CarType carType, CruiseControl cruiseControl) {
         super(color, maxSpeed, isMoving, electrics, engine, headlights, gearBoxType, rightFront, leftFront,
-                rightBack, leftBack, price, gasTank, country);
+                rightBack, leftBack, price, gasTank, country, carType);
         this.cruiseControl = cruiseControl;
     }
 

@@ -1,20 +1,77 @@
 package org.toyota_fabric.warehouse;
 
+import org.toyota_fabric.cars.Car;
 import org.toyota_fabric.cars.light_cars.Camry;
 import org.toyota_fabric.cars.trucks.Dyna;
 import org.toyota_fabric.cars.trucks.Hiance;
+import org.toyota_fabric.cars.сabriolet.Cabriolet;
 import org.toyota_fabric.cars.сabriolet.Solara;
+import org.toyota_fabric.enums.CarType;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Warehouse {
     private final static int MAX_CAPACITY = 1000;
     private int countCar = 0;
+
     List<Camry> camryList = new ArrayList<>();
     List<Solara> solaraList = new ArrayList<>();
     List<Dyna> dynaList = new ArrayList<>();
     List<Hiance> hianceList = new ArrayList<>();
+
+    HashMap<CarType, List<Car>> map = new HashMap<>();
+    List<Car> carList = new ArrayList<>();
+
+    public void addToMap(Car car) {
+        if (countCar < MAX_CAPACITY) {
+            if (car.getCarType() == CarType.CAMRY) {
+                camryList.add((Camry) car);
+                countCar++;
+            } else if (car.getCarType() == CarType.SOLARA) {
+                solaraList.add((Solara) car);
+                countCar++;
+            } else if (car.getCarType() == CarType.DYNA) {
+                dynaList.add((Dyna) car);
+                countCar++;
+            } else if (car.getCarType() == CarType.HIANCE) {
+                hianceList.add((Hiance) car);
+                countCar++;
+            }
+        }
+    }
+
+    //            carList.add(car);
+//            map.put(car.getCarType(), carList)
+
+
+    public Car takeFromMap(Car car) {
+        if (countCar > MAX_CAPACITY) {
+//            map.get(car.getCarType());
+//            carList.remove(0);
+//
+            if (car.getCarType() == CarType.CAMRY) {
+                for (int i = 0; i < carList.size(); i++) {
+                    ((Camry) car).equals(camryList.get(i));
+                    camryList.get(i).equals((Camry) car);
+                }
+            }
+//                camryList.stream().filter(car1 -> car1.equals(car)).findFirst().get();
+                countCar++;
+            } else if (car.getCarType() == CarType.SOLARA) {
+                solaraList.add((Solara) car);
+                countCar++;
+            } else if (car.getCarType() == CarType.DYNA) {
+                dynaList.add((Dyna) car);
+                countCar++;
+            } else if (car.getCarType() == CarType.HIANCE) {
+                hianceList.add((Hiance) car);
+                countCar++;
+
+        }
+    }
 
     public void addCamry(Camry camry) {
         if (countCar < MAX_CAPACITY) {

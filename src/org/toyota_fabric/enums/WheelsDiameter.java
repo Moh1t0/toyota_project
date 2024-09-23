@@ -4,9 +4,4 @@ public enum WheelsDiameter {
     DIAMETER_17,
     DIAMETER_16,
     DIAMETER_20;
-
-    WheelsDiameter() {
-    }
-
-
 }
