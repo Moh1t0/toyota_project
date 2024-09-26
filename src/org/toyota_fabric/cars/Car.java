@@ -135,6 +135,10 @@ public abstract class Car {
         return carType;
     }
 
+    public BigDecimal getPrice() {
+        return price;
+    }
+
     @Override
     public String toString() {
         return "Car{" +

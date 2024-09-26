@@ -1,10 +1,12 @@
 package org.toyota_fabric;
 
 import org.toyota_fabric.car_components.*;
+import org.toyota_fabric.cars.Car;
 import org.toyota_fabric.cars.light_cars.Camry;
 import org.toyota_fabric.cars.trucks.Dyna;
 import org.toyota_fabric.cars.trucks.Hiance;
 import org.toyota_fabric.cars.сabriolet.Solara;
+import org.toyota_fabric.enums.CarType;
 import org.toyota_fabric.enums.Country;
 import org.toyota_fabric.enums.GearBoxType;
 import org.toyota_fabric.enums.WheelsDiameter;
@@ -12,9 +14,13 @@ import org.toyota_fabric.exeptions.CountyFactoryNotEqualException;
 import org.toyota_fabric.exeptions.StartCarException;
 import org.toyota_fabric.factory.Conveyor;
 import org.toyota_fabric.factory.Factory;
+import org.toyota_fabric.people.Buyer;
+import org.toyota_fabric.people.Cashier;
+import org.toyota_fabric.people.Manager;
 import org.toyota_fabric.warehouse.Warehouse;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class Runner {
     public static void main(String[] args) throws StartCarException, CountyFactoryNotEqualException {
@@ -130,12 +136,13 @@ public class Runner {
 
         System.out.println("_________________________________");
 
-        Factory japanFactory = new Factory(Country.JAPAN);
-        Conveyor japanConveyor = new Conveyor(Country.JAPAN, japanFactory);
-        Dyna japanDyna = japanConveyor.createDyna("Черная", new BigDecimal("500.000"));
-        japanDyna.getSocket().charge();
-        japanDyna.setGasTank(new GasTank(20));
-        japanDyna.startMove();
+        Factory kazakhFactory = new Factory(Country.KAZAKHSTAN);
+        Conveyor kazakhConveyor = new Conveyor(Country.KAZAKHSTAN, kazakhFactory);
+        Dyna kazakhDyna = kazakhConveyor.createDyna("Черная", new BigDecimal("500.000"));
+        kazakhDyna.getSocket().charge();
+        kazakhDyna.setGasTank(new GasTank(20));
+        kazakhDyna.startMove();
+        Camry kazakhCamry = kazakhConveyor.createCamry("Черная", new BigDecimal("150.000"));
 
         System.out.println("_________________________________");
         Factory chinaFactory = new Factory(Country.CHINA);
@@ -157,8 +164,65 @@ public class Runner {
          */
 
         Warehouse warehouse = new Warehouse();
-        warehouse.addToMap(usaCamry);
-        warehouse.addToMap(japanDyna);
+        warehouse.addToWarehouse(usaCamry);
+        warehouse.addToWarehouse(kazakhDyna);
+        warehouse.addToWarehouse(kazakhCamry);
+        System.out.println(warehouse.getCountCar());
+        warehouse.takeCarFromWarehouse(usaCamry);
+        System.out.println(warehouse.getCountCar());
+        warehouse.carsCount(CarType.CAMRY);
+        System.out.println("\n__________________________________");
+
+        /**
+         *  4 этап:
+         */
+
+        Factory japanFactory = new Factory(Country.JAPAN);
+        Conveyor japanConveyor = new Conveyor(Country.JAPAN, japanFactory);
+        Camry japanCamry = japanConveyor.createCamry("Black", new BigDecimal("10000.00"));
+        Solara japanSolara = japanConveyor.createSolara(new BigDecimal("12000.00"), "white");
+        Hiance japanHiance = japanConveyor.createHiance("black", new BigDecimal("15000.00"));
+        Dyna japanDyna = japanConveyor.createDyna("black", new BigDecimal("22000.00"));
+
+        warehouse.addToWarehouse(japanCamry);
+        warehouse.addToWarehouse(japanSolara);
+        warehouse.addToWarehouse(japanHiance);
+        warehouse.addToWarehouse(japanDyna);
+
+        Manager manager1 = new Manager("Василий", japanConveyor, warehouse);
+        Cashier cashier1 = new Cashier("Артем");
+        Buyer buyer1 = new Buyer("Иван", new BigDecimal("10000.00"));
+        Car sellCar1 = manager1.sellCar(buyer1, warehouse);
+        cashier1.addIncome(sellCar1);
+
+        Buyer buyer2 = new Buyer("Петр", new BigDecimal("12000.00"));
+        Car sellCar2 = manager1.sellCar(buyer2, warehouse);
+        cashier1.addIncome(sellCar2);
+
+        Buyer buyer3 = new Buyer("Юрий", new BigDecimal("15000.00"));
+        Car sellCar3 = manager1.sellCar(buyer3, warehouse);
+        cashier1.addIncome(sellCar3);
+
+        Buyer buyer4 = new Buyer("Фёдор", new BigDecimal("22000.00"));
+        Car sellCar4 = manager1.sellCar(buyer4, warehouse);
+        cashier1.addIncome(sellCar4);
+
+        Buyer buyer5 = new Buyer("Константин", new BigDecimal("11000.00"));
+        Car sellCar5 = manager1.sellCar(buyer5, warehouse);
+        cashier1.addIncome(sellCar5);
+
+        Buyer buyer6 = new Buyer("Александр", new BigDecimal("13200.00"));
+        Car sellCar6 = manager1.sellCar(buyer6, warehouse);
+        cashier1.addIncome(sellCar6);
+
+        Buyer buyer7 = new Buyer("Алексей", new BigDecimal("8000.00"));
+        Car sellCar7 = manager1.sellCar(buyer7, warehouse);
+        cashier1.addIncome(sellCar7);
+
+        Buyer buyer8 = new Buyer("Дмитрий", new BigDecimal("30000.00"));
+        Car sellCar8 = manager1.sellCar(buyer8, warehouse);
+        cashier1.addIncome(sellCar8);
+        System.out.println(cashier1.getIncome());
 
 
     }
